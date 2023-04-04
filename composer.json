@@ -1,0 +1,33 @@
+{
+    "name": "kenny1911/doctrine-orm-set",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "Kenny1911",
+            "email": "o-muzyka@mail.ru"
+        }
+    ],
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Kenny1911\\Doctrine\\Set\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kenny1911\\Doctrine\\Set\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^7.1 || ^8.0",
+        "doctrine/orm": "^2.8"
+    },
+    "require-dev": {
+        "doctrine/annotations": " ^1.11.1 || ^2.0",
+        "symfony/cache": "^4.0 || ^5.0 || ^6.0"
+    }
+}
