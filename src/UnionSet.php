@@ -8,8 +8,8 @@ final class UnionSet extends CombineSet
     /**
      * @param array<Set> $sets
      */
-    public function __construct(array $sets)
+    public function __construct(array $sets, bool $wrap = false)
     {
-        parent::__construct($sets, 'UNION');
+        parent::__construct($sets, 'UNION', $wrap);
     }
 }

@@ -8,8 +8,8 @@ final class ExceptSet extends CombineSet
     /**
      * @param array<Set> $sets
      */
-    public function __construct(array $sets)
+    public function __construct(array $sets, bool $wrap = false)
     {
-        parent::__construct($sets, 'EXCEPT');
+        parent::__construct($sets, 'EXCEPT', $wrap);
     }
 }

@@ -12,7 +12,7 @@ abstract class CombineSet extends SetDecorator
     /**
      * @param array<Set> $sets
      */
-    public function __construct(array $sets, string $operator)
+    public function __construct(array $sets, string $operator, bool $wrap)
     {
         if (2 > count($sets)) {
             throw new LogicException('Count of union sets must be 2 or more.');
@@ -22,11 +22,15 @@ abstract class CombineSet extends SetDecorator
             ' '.$operator.' ',
             array_map(
                 function (Set $set) {
-                    return '('.$set->getSql().')';
+                    return $set->getSql();
                 },
                 $sets
             )
         );
+
+        if ($wrap) {
+            $sql = '('.$sql.')';
+        }
 
         $parameters = [];
 
