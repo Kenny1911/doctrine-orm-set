@@ -10,8 +10,10 @@ final class OffsetLimitSet extends SetDecorator
 {
     public function __construct(Set $set, ?int $limit = null, int $offset = 0)
     {
+        $sql = sprintf('SELECT * FROM (%s) AS records', $set->getSql());
+
         $platform = QueryExtractor::getPlatform($set->getQuery());
-        $sql = $platform->modifyLimitQuery($set->getSQL(), $limit, $offset);
+        $sql = $platform->modifyLimitQuery($sql, $limit, $offset);
 
         $query = QueryCloner::create($set->getQuery())->withSQL($sql)->getQuery();
 
